@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculatrice en ligne</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+        body{
+            width: auto;
+            font-family: 'century gothic';
+            font-size: 20px;
+        }
+        div{
+            width: 250px;
+            height: 400px;
+            border: 0px solid black;
+            box-shadow: 1px 5px 30px black ;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: black;
+            margin: auto;
+            margin-top: 5%;  
+        }
+        .padding{
+            padding-left: 5px;
+        }
+        input{
+            border-radius: 5px;
+            font-size: 20px; 
+            width: 45px;
+            height: 40px;
+        }
+        .input_width3{
+            width: 114px;
+            margin-right: 5px ;
+        }
+        .input_width2{
+            width: 95px;  
+        }
+        #afficheur{
+            width:89%;
+            height:50px ;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: rgba(108, 206, 141, 0.63);          
+        }
+       footer{
+            text-align: center;
+            margin-top: 15px ;
+        }
+      
+    </style>
+
+</head>
+<body>
+    <div>
+        <p>
+            <input readonly='true' id='afficheur'></input>
+        </p>
+        <p class="padding">
+            <input class ="input_width3" type="button" name="number" value="DEL"  onclick="clearScreen()">
+            <input class ="input_width3" type="button" name="number" value="<"  onclick="back()">
+        </p>
+        
+        <p>
+            <input type="button" name="number" value="7"  onclick="insertNum(7)">
+            <input type="button" name="number" value="8"  onclick="insertNum(8)">
+            <input type="button" name="number" value="9"  onclick="insertNum(9)">
+            <input type="button" name="number" value="("  onclick="insertNum('(')">
+            <input type="button" name="number" value=")"  onclick="insertNum(')')">
+        </p>
+        <p>
+            <input type="button" name="number" value="4"  onclick="insertNum(4)">
+            <input type="button" name="number" value="5"  onclick="insertNum(5)">
+            <input type="button" name="number" value="6"  onclick="insertNum(6)">
+            <input type="button" name="number" value="*"  onclick="insertNum('*')">
+            <input type="button" name="number" value="/"  onclick="insertNum('/')">
+        </p>
+        <p>
+            <input type="button" name="number" value="1"  onclick="insertNum(1)">
+            <input type="button" name="number" value="2"  onclick="insertNum(2)">
+            <input type="button" name="number" value="3"  onclick="insertNum(3)">
+            <input type="button" name="number" value="+"  onclick="insertNum('+')">
+            <input type="button" name="number" value="-"  onclick="insertNum('-')">
+        </p>
+        <p>
+            <input type="button" class ="input_width2" name="number" value="0"  onclick="insertNum(0)">
+            <input type="button" name="number" value="."  onclick="insertNum('.')">
+            <input type="button" class ="input_width2"name="number" value="="  onclick="answer()"> 
+        </p>
+    </div>
+    <script>
+        function insertNum(number) {
+            document.getElementById('afficheur').value =  document.getElementById('afficheur').value + number;
+        }
+        function clearScreen() {
+            document.getElementById('afficheur').value = '';
+        }
+        function back() {
+            var x = document.getElementById('afficheur').value;
+            document.getElementById('afficheur').value = x.substr(0,x.length-1);
+        }
+        function answer() {
+            var result = document.getElementById('afficheur').value;
+            document.getElementById('afficheur').value = eval(result); 
+        }
+    </script> 
+   
+    
+    <footer>
+        Copyrigth &copy; 2020 | Confort Zodehougan
+    </footer>
+</body>
+</html>
